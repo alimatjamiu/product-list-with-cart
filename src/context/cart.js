@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
                 if (existingItem.quantity > 1) {
                     return prevItems.map(cartItem =>
                         cartItem.name === id
-                            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+                            ? { ...cartItem, quantity: cartItem.quantity - 1,  }
                             : cartItem
                     );
                 } else {

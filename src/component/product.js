@@ -26,8 +26,8 @@ export default function Product(){
    <Image 
                 src={product.image.desktop}
                 alt={product.name}
-                width={300}
-                height={200}
+                width={1050}
+                height={1050}
                 
                 className="hidden lg:block md:hidden rounded-xl "/>
                 <Image 
@@ -36,7 +36,7 @@ export default function Product(){
                 width={300}
                 height={200}
                 
-                className="block lg:hidden md:hidden rounded-xl "/>
+                className="block w-full lg:hidden md:hidden rounded-xl "/>
                 <Image 
                 src={product.image.tablet}
                 alt={product.name}

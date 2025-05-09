@@ -97,5 +97,16 @@
         "name": "Vanilla Panna Cotta",
         "category": "Panna Cotta",
         "price": 6.50
+     },
+     {
+        "image": {
+            "thumbnail": "/assets/images/chocolaty-cake.avif",
+            "mobile": "/assets/images/chocolaty-cake.avif",
+            "tablet": "/assets/images/chocolaty-cake.avif",
+            "desktop": "/assets/images/chocolaty-cake.avif"
+        },
+        "name": "Vanilla Panna Cotta",
+        "category": "Panna Cotta",
+        "price": 6.50
      }
 ]
