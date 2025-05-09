@@ -29,7 +29,7 @@ export default function Product(){
                 width={1050}
                 height={1050}
                 
-                className="hidden lg:block md:hidden rounded-xl "/>
+                className="hidden lg:block md:hidden rounded-xl w-full "/>
                 <Image 
                 src={product.image.mobile}
                 alt={product.name}
@@ -47,7 +47,7 @@ export default function Product(){
    </CardHeader>
                 <Button
                 onClick={() => addToCart(product)}
-                 className="bg-[#c73a0f] text-white absolute  top-16">Add to cart</Button>
+                 className="bg-[#c73a0f] text-white absolute xl:top-36  lg:top-30 lg:left-6">Add to cart</Button>
                 
 {/* <Image className="fill-blue-500" src="/assets/images/icon-add-to-cart.svg" alt="Cart Icon" width={20} height={20} /> */}
            <CardContent>
