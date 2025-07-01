@@ -4,22 +4,28 @@ import Data from "../../data.json"
 import Cart from "./cart";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import {  CartContext } from "../context/cart";
+import Confirm from "../component/confirm";
 
 
 
 
 export default function Product(){
-    const { addToCart } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext); 
+const [showConfirm, setShowConfirm] = useState(false);
+
+
+
   
     
     return(
-<section className="flex flex-col lg:flex-row  justify-between bg-[#f4edeb]">
-<main  className="flex-1">
+<section className="flex flex-col lg:flex-row  justify-between bg-[#f4edeb]  overflow-y-auto relative z-10">
+
+    <main  className="flex-1">
 <div className="flex flex-col justify-center w-full p-4">
             <h1 className="text-start">Desserts</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-1 gap-4 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 p-1 gap-4 ">
           {Data.map((product, index) => (
              <Card key={index} className=" relative  ">
    <CardHeader>
@@ -49,7 +55,6 @@ export default function Product(){
                 onClick={() => addToCart(product)}
                  className="bg-[#c73a0f] text-white absolute xl:top-36  lg:top-30 lg:left-6">Add to cart</Button>
                 
-{/* <Image className="fill-blue-500" src="/assets/images/icon-add-to-cart.svg" alt="Cart Icon" width={20} height={20} /> */}
            <CardContent>
            <CardTitle className="text-md">{product.name}</CardTitle>
             <CardDescription className="text-gray-600">{product.category}</CardDescription>
@@ -64,8 +69,10 @@ export default function Product(){
         </div>
 </main>
         <aside className="w-full lg:w-[30%]  p-4">
-            <Cart/>
+            <Cart />
         </aside>
+        {showConfirm && <Confirm setShowConfirm={setShowConfirm} />}
 </section>
+       
     )
 }

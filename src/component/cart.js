@@ -1,19 +1,22 @@
 import { XIcon } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useState} from "react";
 import { CartContext } from "../context/cart";
 import { Button } from "../components/ui/button";
 import Image from "next/image";
-import Carbon from "../../public/assets/images/icon-carbon-neutral.svg"
-import Empty from "../component/empty"
+import Carbon from "../../public/assets/images/icon-carbon-neutral.svg";
+import Empty from "../component/empty";
+import Confirm from "../component/confirm";
+
 
 export default function Cart() {
     const { cartItems, removeFromCart, clearCart,cartTotal, addToCart,removeCart } = useContext(CartContext);
+    const [showConfirm, setShowConfirm] = useState(false);
 
-  ;
+
 
     return (
-        <div className="bg-white p-4 rounded-xl shadow-lg overflow-y-auto">
-            <div className="mb-4 flex justify-between items-center">
+        <div className="bg-white p-4 rounded-xl shadow-lg overflow-y-scroll">
+                <div className="mb-4 flex justify-between items-center">
                 <h1 className="text-lg font-bold text-[#c73a0f]">
                     Your Cart ({cartItems.length})
                 </h1>
@@ -71,12 +74,17 @@ export default function Cart() {
                            <span> <Image src={Carbon} alt="carbon image" width={20}/></span>
                             <p>this is a carbon neutral delivery</p>
                         </div>
-                        <div className="bg-[#c73a0f] py-2 text-center mx-2 rounded-full text-white hover:bg-red-950  ">
+                        <div
+                         onClick={() => setShowConfirm(true)}
+                         className="bg-[#c73a0f] py-2 text-center mx-2 rounded-full text-white hover:bg-red-950  ">
                             confirm order
                         </div>
                      </div>
                 </div>
+                
             )}
+          
+              <Confirm isOpen={showConfirm} onClose={() => setShowConfirm(false)} />
         </div>
     );
 }
